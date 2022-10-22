@@ -16,4 +16,15 @@
   </mat-form-field>
 
   <span>Weeks {{ totalWeeks }} </span>
+
+  <mat-divider></mat-divider>
 </div>
+
+<section class="section" *ngFor="let week of weeks; let i = index">
+  <div *ngIf="i == 1000 || i == 2000 || i == 3000">
+    <p>{{ i }}</p>
+    <mat-divider [inset]="true"> </mat-divider>
+  </div>
+  <mat-checkbox [checked]="week.active" disabled></mat-checkbox>
+</section>
+<p>4000</p>

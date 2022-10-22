@@ -1,4 +1,13 @@
-.container{
-    display: grid;
-    place-items:  center;
+.container {
+  display: grid;
+  place-items: center;
+}
+
+.section {
+  display: inline;
+  padding: 1px;
+}
+
+::ng-deep .mat-checkbox-checkmark {
+  display: none;
 }
