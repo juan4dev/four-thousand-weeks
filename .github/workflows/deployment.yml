@@ -1,0 +1,25 @@
+name: deployment
+
+on:
+  workflow_dispatch:
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+      - name: Install Dependencies
+        run: |
+          npm ci
+      - name: Build
+        run: |
+          npm run build
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.4.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: dist/four-thousand-weeks
