@@ -23,8 +23,18 @@
 <section class="section" *ngFor="let week of weeks; let i = index">
   <div *ngIf="i == 1000 || i == 2000 || i == 3000">
     <p>{{ i }}</p>
-    <mat-divider [inset]="true"> </mat-divider>
+    <mat-divider> </mat-divider>
   </div>
-  <mat-checkbox [checked]="week.active" disabled></mat-checkbox>
+  <svg width="22" height="22">
+    <rect
+      x="0.625"
+      y="0.625"
+      rx="2.5"
+      ry="2.5"
+      width="18.75"
+      height="18.75"
+      [style.fill]="week.active ? '#3f51b5' : '#e0e0e0'"
+    />
+  </svg>
 </section>
 <p>4000</p>
