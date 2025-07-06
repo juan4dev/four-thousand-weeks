@@ -8,27 +8,31 @@
     type="date"
     (change)="updateWeeks($event)"
     class="border rounded px-2 py-1"
-  />
-  <small>MM/DD/YYYY</small>
-
-  <span>Weeks {{ totalWeeks }} </span>
-
-</div>
-
-<section class="section" *ngFor="let week of weeks; let i = index">
-  <div *ngIf="i == 1000 || i == 2000 || i == 3000">
-    <p>{{ i }}</p>
-  </div>
-  <svg width="22" height="22">
-    <rect
-      x="0.625"
-      y="0.625"
-      rx="2.5"
-      ry="2.5"
-      width="18.75"
-      height="18.75"
-      [style.fill]="week.active ? '#3f51b5' : '#e0e0e0'"
     />
-  </svg>
-</section>
-<p>4000</p>
+    <small>MM/DD/YYYY</small>
+
+    <span>Weeks {{ totalWeeks }} </span>
+
+  </div>
+
+  @for (week of weeks; track week; let i = $index) {
+    <section class="section">
+      @if (i == 1000 || i == 2000 || i == 3000) {
+        <div>
+          <p>{{ i }}</p>
+        </div>
+      }
+      <svg width="22" height="22">
+        <rect
+          x="0.625"
+          y="0.625"
+          rx="2.5"
+          ry="2.5"
+          width="18.75"
+          height="18.75"
+          [style.fill]="week.active ? '#3f51b5' : '#e0e0e0'"
+          />
+        </svg>
+      </section>
+    }
+    <p>4000</p>
