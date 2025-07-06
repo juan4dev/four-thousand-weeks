@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
-    standalone: false
+  templateUrl: './app.html',
+    styleUrls: ['./app.scss'],
+    standalone: true
 })
-export class AppComponent {
+export class App {
   title = '3';
   totalWeeks: number = 0;
 
