@@ -6,19 +6,13 @@ jobs:
   on-success:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "20"
-      - name: Install Dependencies
+      - uses: actions/checkout@v4
+      - name: Install and Build
         run: |
           npm ci
-      - name: Build
-        run: |
           npm run build
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          folder: dist/four-thousand-weeks
+          folder: dist/four-thousand-weeks/browser
