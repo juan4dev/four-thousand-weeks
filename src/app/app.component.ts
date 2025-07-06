@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-root',
@@ -16,12 +15,18 @@ export class AppComponent {
 
   constructor() {}
 
-  updateWeeks(event: MatDatepickerInputEvent<Date>) {
-    this.totalWeeks = this.getWeeksDiff(event.value);
+updateWeeks(event: Event): void {
+  const input = event.target as HTMLInputElement;
+  const value = input.value;
+
+  if (value) {
+    const selectedDate = new Date(value);
+    this.totalWeeks = this.getWeeksDiff(selectedDate);
     this.weeks = this.weeks.map((week, i) => ({
       active: i < this.totalWeeks,
     }));
   }
+}
 
   getWeeksDiff(date: Date | null) {
     if (date) {
